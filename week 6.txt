@@ -1,0 +1,75 @@
+
+Week 6 focuses on Joining Tables in SQL, a crucial concept that allows you to combine data from multiple tables based on a related column. This week, you'll dive into various types of JOINs and how to use them effectively in SQL queries. Here's a quick overview of the topics you may cover:
+
+Learning Goals:
+Understand the purpose of joining tables in SQL.
+Learn different types of JOINs: INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN, and CROSS JOIN.
+Practice writing SQL queries that use JOINs to combine data from multiple tables.
+Handle situations where tables have columns with the same name using aliases.
+Types of SQL JOINs:
+INNER JOIN:
+
+Retrieves rows that have matching values in both tables.
+If there is no match, the rows will not appear in the result.
+Example:
+
+sql
+Copy code
+SELECT employees.name, departments.name
+FROM employees
+INNER JOIN departments ON employees.department_id = departments.id;
+LEFT JOIN (LEFT OUTER JOIN):
+
+Retrieves all rows from the left table, and matching rows from the right table. If there is no match, the result will contain NULL for columns from the right table.
+Example:
+
+sql
+Copy code
+SELECT employees.name, departments.name
+FROM employees
+LEFT JOIN departments ON employees.department_id = departments.id;
+RIGHT JOIN (RIGHT OUTER JOIN):
+
+Retrieves all rows from the right table, and matching rows from the left table. If there is no match, the result will contain NULL for columns from the left table.
+Example:
+
+sql
+Copy code
+SELECT employees.name, departments.name
+FROM employees
+RIGHT JOIN departments ON employees.department_id = departments.id;
+FULL OUTER JOIN:
+
+Retrieves all rows when there is a match in one of the tables. This JOIN includes unmatched rows from both tables, with NULL for non-matching columns.
+Example:
+
+sql
+Copy code
+SELECT employees.name, departments.name
+FROM employees
+FULL OUTER JOIN departments ON employees.department_id = departments.id;
+CROSS JOIN:
+
+Returns the Cartesian product of both tables, i.e., every row in the left table is joined with every row in the right table.
+Example:
+
+sql
+Copy code
+SELECT employees.name, departments.name
+FROM employees
+CROSS JOIN departments;
+Using Aliases:
+Aliases are used to make queries shorter and more readable. They are especially useful when tables have long names or when you are using multiple tables that have columns with the same name (e.g., id).
+Example with Aliases:
+
+sql
+Copy code
+SELECT e.name, d.name
+FROM employees AS e
+INNER JOIN departments AS d ON e.department_id = d.id;
+Practice Tasks:
+Practice creating and querying your own tables.
+Write SQL queries using the different types of joins to retrieve relevant data from multiple tables.
+Handle situations where table columns overlap by using aliases.
+Real-world Applications:
+Joins are essential for analyzing data from multiple sources, such as combining customer data with order data, or employee data with department data.
